@@ -181,6 +181,8 @@ span{
     margin-bottom: 1em;
     font-size: 36px;
 }
+
+
 .contact-form form{
     max-width: 50em;
     margin: 1rem auto;
@@ -260,4 +262,69 @@ span{
     text-align: center;
     font-size: 12px;
     color: white;
+}
+
+
+
+
+.slider{
+    height: 500px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-color: white;
+}
+
+.slide-tracker{
+    display: flex;
+    width: calc(250px * 18);
+    animation: scroll 40s linear infinite;
+}
+
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 9));
+    }
+}
+
+.slide{
+    height: 200px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    padding: 65px;
+    perspective: 100px;
+}
+
+img{
+    width: 120%;
+    transition: transfrom 1s;
+}
+img:hover{
+    transform: translateZ(20px);
+}
+
+.slider::before,.slider::after{
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0)5%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+.slider::before{
+    left: 0;
+    top: 0;
+}
+.slider::after{
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
 }
